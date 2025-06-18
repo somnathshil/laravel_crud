@@ -18,6 +18,7 @@
           <th>Phone</th>
           <th>Image</th>
           <th>Actions</th>
+          <th>Block Unblock</th>
         </tr>
         @foreach($allInfo->all() as $details)
          <tr>
@@ -30,6 +31,7 @@
             <a href="{{url('/edit')}}{{$details->user_id}}">Edit</a> |
             <a href="{{url('/delete')}}{{$details->user_id}}" onclick="return confirm('Are you sure?')">Delete</a>
           </td>
+          <td><button>Block</button></td>
         </tr>
         @endforeach
 
