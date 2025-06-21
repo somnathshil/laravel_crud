@@ -8,6 +8,16 @@
 </head>
 <body>
     <div class="container">
+      @if(session('message'))
+           <!-- <div class="alert alert-success">
+           {{session('message')}}
+           </div> -->
+
+           <script>
+            alert("{{session('message')}}");
+           </script>
+        @endif
+
     @if(isset($allInfo))
     <div class="table table-responsive">
       <table class="table table-bordered table-hover">
@@ -18,7 +28,6 @@
           <th>Phone</th>
           <th>Image</th>
           <th>Actions</th>
-          <th>Block Unblock</th>
         </tr>
         @foreach($allInfo->all() as $details)
          <tr>
@@ -29,9 +38,9 @@
           <td><img src="{{$details->image}}" alt="image" height="100" width="100"></td>
           <td>
             <a href="{{url('/edit')}}{{$details->user_id}}">Edit</a> |
+            <a href="{{url('/changepass')}}">Change Password</a> |
             <a href="{{url('/delete')}}{{$details->user_id}}" onclick="return confirm('Are you sure?')">Delete</a>
           </td>
-          <td><button>Block</button></td>
         </tr>
         @endforeach
 
